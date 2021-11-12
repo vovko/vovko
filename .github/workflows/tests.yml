@@ -16,4 +16,5 @@ jobs:
   test:
     needs: build
     runs-on: ubuntu-20.04
-        run: echo "Hello world"
+    steps:
+      - run: echo "Hello world"
