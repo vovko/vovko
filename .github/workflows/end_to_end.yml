@@ -17,9 +17,16 @@ jobs:
     needs: build
     uses: vovko/vovko/.github/workflows/tests.yml@master
 
-  deploy:
-    needs: tests
-    uses: vovko/vovko/.github/workflows/deploy.yml@master
-    secrets:
+  aws-configure:
+    uses: aws-actions/configure-aws-credentials@v1
+    with:
       aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
       aws-secret-access-key: ${{ secrets.STAGING_AWS_SECRET_ACCESS_KEY }}
+      aws-region: us-east-1
+
+  deploy:
+    needs: aws-configure
+    uses: vovko/vovko/.github/workflows/deploy.yml@master
+    # secrets:
+    #   aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
+    #   aws-secret-access-key: ${{ secrets.STAGING_AWS_SECRET_ACCESS_KEY }}
