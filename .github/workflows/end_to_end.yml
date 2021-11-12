@@ -19,6 +19,8 @@ jobs:
 
   deploy:
     needs: tests
-    runs-on: ubuntu-20.04
-    steps:
-      - run: echo "Done deploy"
+    uses: vovko/vovko/.github/workflows/deploy.yml@master
+    with:
+      aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.STAGING_AWS_SECRET_ACCESS_KEY }}
+      aws-region: us-east-1

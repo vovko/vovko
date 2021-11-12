@@ -3,7 +3,7 @@ name: Run Tests
 on: workflow_call
 
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-20.04
     steps:
       - name: 'Linter'
