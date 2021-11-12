@@ -1,4 +1,4 @@
-name: Deploy
+name: Release
 
 on:
   workflow_call:
@@ -14,7 +14,7 @@ on:
         required: true
 
 jobs:
-  deploy:
+  release:
     runs-on: ubuntu-20.04
     steps:
       - name: Configure AWS credentials for Production account
