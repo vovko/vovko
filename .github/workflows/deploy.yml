@@ -1,18 +1,6 @@
 name: Deploy
 
-on:  workflow_call
-# on:
-#   workflow_call:
-#     inputs:
-#       aws-region:
-#         default: 'us-east-1'
-#         required: false
-#         type: string
-#     secrets:
-#       aws-access-key-id:
-#         required: true
-#       aws-secret-access-key:
-#         required: true
+on: workflow_call
 
 jobs:
   deploy:

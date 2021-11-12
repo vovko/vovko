@@ -27,6 +27,3 @@ jobs:
   deploy:
     needs: aws-configure
     uses: vovko/vovko/.github/workflows/deploy.yml@master
-    # secrets:
-    #   aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
-    #   aws-secret-access-key: ${{ secrets.STAGING_AWS_SECRET_ACCESS_KEY }}
