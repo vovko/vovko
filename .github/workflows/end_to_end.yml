@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v2
 
   test:
-    uses: vovko/vovko/.github/workflows/test.yml@e64354b601132d59abae29f1b5f38a5b1006dc82
+    uses: ./.github/workflows/test.yml
 
   deploy:
     needs: test
