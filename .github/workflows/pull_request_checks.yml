@@ -1,0 +1,19 @@
+name: Pull Request Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+    env:
+      AWS_MAX_ATTEMPTS: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Tests
+        run: echo "Hello world"
