@@ -14,7 +14,7 @@ on:
         required: true
 
 jobs:
-  tests:
+  deploy:
     runs-on: ubuntu-20.04
     # with:
     #   aws-region: ${{ inputs.aws-region }}
@@ -22,4 +22,4 @@ jobs:
     #   aws-access-key-id: ${{ secrets.aws-access-key-id }}
     #   aws-secret-access-key: ${{ secrets.aws-secret-access-key }}
     steps:
-      - run: echo "Done deploy"
+      - run: echo "Done deploy $AWS_REGION"
