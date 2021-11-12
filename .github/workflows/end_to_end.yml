@@ -13,8 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-  test:
-    uses: vovko/vovko/.github/workflows/test.yml@master
+  call-workflow-test:
+    uses: vovko/vovko/.github/workflows/tests.yml@master
 
   deploy:
     needs: build
