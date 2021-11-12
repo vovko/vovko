@@ -16,12 +16,13 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
-    # with:
-    #   aws-region: ${{ inputs.aws-region }}
-    # secrets:
-    #   aws-access-key-id: ${{ secrets.aws-access-key-id }}
-    #   aws-secret-access-key: ${{ secrets.aws-secret-access-key }}
     steps:
-      - run: echo "Done deploy $AWS_REGION"
+      - name: Configure AWS credentials for Production account
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: ${{ inputs.aws-region }}
+        secrets:
+          aws-access-key-id: ${{ secrets.aws-access-key-id }}
+          aws-secret-access-key: ${{ secrets.aws-secret-access-key }}
+
+      - run: echo "Done deploy $AWS_REGION"

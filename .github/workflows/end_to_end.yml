@@ -7,18 +7,18 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+  # build:
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
 
-  tests:
-    needs: build
-    uses: vovko/vovko/.github/workflows/tests.yml@master
+  # tests:
+  #   needs: build
+  #   uses: vovko/vovko/.github/workflows/tests.yml@master
 
   deploy:
-    needs: tests
+    # needs: tests
     uses: vovko/vovko/.github/workflows/deploy.yml@master
     secrets:
       aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
