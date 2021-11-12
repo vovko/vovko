@@ -13,11 +13,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-  call-workflow-test:
+  tests:
+    needs: build
     uses: vovko/vovko/.github/workflows/tests.yml@master
 
   deploy:
-    needs: build
+    needs: tests
     runs-on: ubuntu-20.04
     steps:
       - run: echo "Done deploy"
