@@ -23,3 +23,5 @@ jobs:
     #   aws-secret-access-key: ${{ secrets.aws-secret-access-key }}
     steps:
       - run: echo "Done deploy $AWS_REGION"
+        with:
+          aws-region: ${{ inputs.aws-region }}
