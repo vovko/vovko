@@ -12,8 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Tests
-        uses: vovko/vovko/.github/workflows/tests.yml@master
+
+  quality-control:
+    needs: build
+    uses: vovko/vovko/.github/workflows/tests.yml@master
 
   deploy:
     needs: tests
