@@ -17,6 +17,9 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Configure AWS credentials for Production account
         uses: aws-actions/configure-aws-credentials@v1
         with:

@@ -1,0 +1,3 @@
+tests:
+	echo Running tests...
+.PHONY: tests

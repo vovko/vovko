@@ -6,7 +6,5 @@ jobs:
   tests:
     runs-on: ubuntu-20.04
     steps:
-      - name: 'Linter'
-        run: echo "Linter"
-      - name: 'Rspec'
-        run: echo "Rspec"
+      - name: 'Tests'
+        run: make tests
