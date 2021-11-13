@@ -6,7 +6,6 @@ on:
 
 jobs:
   tests:
-    needs: build
     uses: vovko/vovko/.github/workflows/tests.yml@master
 
   release:
