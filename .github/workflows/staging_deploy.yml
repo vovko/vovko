@@ -29,6 +29,6 @@ jobs:
       - name: Slack Notify
         uses: slackapi/slack-github-action@v1.16.0
         with:
-          payload: "{\"environment\":\"Staging\", \"environment_url\":\"http://staging.vovko.ca\", \"github_ref\":\"$GITHUB_REF\"}"
+          payload: "{\"environment\":\"Staging\", \"environment_url\":\"http://staging.vovko.ca\", \"github_ref\":\"${GITHUB_REF}\"}"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
