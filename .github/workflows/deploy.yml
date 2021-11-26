@@ -22,8 +22,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
-    environment: ${{ inputs.environment }}
-    environment_url: http://staging.vovko.ca
+    environment:
+      name: ${{ inputs.environment }}
+      url: http://staging.vovko.ca
     steps:
       - name: Checkout
         uses: actions/checkout@v2
