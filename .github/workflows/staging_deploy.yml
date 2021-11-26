@@ -24,6 +24,7 @@ jobs:
 
   notify:
     needs: deploy
+    runs-on: ubuntu-latest
     steps:
       - name: Slack Notify
         uses: slackapi/slack-github-action@v1.16.0
