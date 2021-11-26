@@ -28,5 +28,7 @@ jobs:
     steps:
       - name: Slack Notify
         uses: slackapi/slack-github-action@v1.16.0
+        with:
+          payload: "{\"environment\":\"staging\"}"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
