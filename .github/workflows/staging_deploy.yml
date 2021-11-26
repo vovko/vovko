@@ -17,7 +17,6 @@ jobs:
 
   deployment:
     needs: release
-    # environment: staging
     uses: vovko/vovko/.github/workflows/deploy.yml@master
     secrets:
       aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}

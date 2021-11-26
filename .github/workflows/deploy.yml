@@ -16,6 +16,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
+    environment: staging
     steps:
       - name: Checkout
         uses: actions/checkout@v2
