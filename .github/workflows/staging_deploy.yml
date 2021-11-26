@@ -29,6 +29,6 @@ jobs:
       - name: Slack Notify
         uses: slackapi/slack-github-action@v1.16.0
         with:
-          payload: "{\"environment\":\"staging\"}"
+          payload: "{\"blocks\":[{\"type\":\"section\",\"text\":{\"type\":\"plain_text\",\"text\":\"Hello world\",\"emoji\":true}}]}"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
