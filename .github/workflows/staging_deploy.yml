@@ -15,20 +15,27 @@ jobs:
       aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
       aws-secret-access-key: ${{ secrets.STAGING_AWS_SECRET_ACCESS_KEY }}
 
-  deploy:
+  deployment:
     needs: release
+    environment: staging
     uses: vovko/vovko/.github/workflows/deploy.yml@master
     secrets:
       aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
       aws-secret-access-key: ${{ secrets.STAGING_AWS_SECRET_ACCESS_KEY }}
 
-  notify:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Slack Notify
-        uses: slackapi/slack-github-action@v1.16.0
-        with:
-          payload: "{\"environment\":\"Staging\", \"environment_url\":\"http://staging.vovko.ca\", \"github_ref\":${GITHUB_REF}}"
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  # notify:
+  #   needs: deploy
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: slack - GitHub Actions Slack integration
+  #     uses: act10ns/slack@v1.5.0
+  #     env:
+  #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  #     - name: Slack Notify
+  #       uses: slackapi/slack-github-action@v1.16.0
+  #     with:
+  #       channel-id: 'CHANNEL_ID'  # Slack channel id or name to post message. https://api.slack.com/methods/chat.postMessage#channels
+  #       slack-message: 'posting from a github action!'
+  #     env:
+  #       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
