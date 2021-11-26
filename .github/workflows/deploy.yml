@@ -3,6 +3,9 @@ name: Deployment
 on:
   workflow_call:
     inputs:
+      environment:
+        required: true
+        type: string
       aws-region:
         default: 'us-east-1'
         required: false
@@ -16,7 +19,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
-    environment: staging
+    environment: ${{ inputs.environment }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
